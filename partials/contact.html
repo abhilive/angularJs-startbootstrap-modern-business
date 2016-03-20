@@ -1,0 +1,127 @@
+    <!-- Page Content -->
+    <div class="container"><!-- animate to top after submit contact form -->
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Contact
+                    <small>Subheading</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#/">Home</a>
+                    </li>
+                    <li class="active">Contact</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- section to show error messages after submitting contact form -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div ng-show="message" class="alert alert-success" role="alert">
+                    <h3 class="text-center">{{message}}</h3><br>
+                    <h4 class="text-center">
+                        <i class="fa fa-check-square-o"></i> <span class="label label-success">Thank You!</span> We will get back to you as soon as possible.
+                    </h4>
+                </div>
+                <div ng-show="errorName || errorPhone || errorEmail" class="alert alert-danger" role="alert">
+                    <h4>
+                        <span ng-show="errorName"><i class="fa fa-exclamation-circle"></i> {{errorName}}</span>
+                    </h4>
+                    <h4>
+                        <span ng-show="errorPhone"><i class="fa fa-exclamation-circle"></i> {{errorPhone}}</span>
+                    </h4>
+                    <h4>
+                        <span ng-show="errorEmail"><i class="fa fa-exclamation-circle"></i> {{errorEmail}}</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Map Column -->
+            <div class="col-md-8">
+                <!-- Embedded Google Map -->
+                <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-md-4">
+                <h3>Contact Details</h3>
+                <p>
+                    3481 Melrose Place<br>Beverly Hills, CA 90210<br>
+                </p>
+                <p><i class="fa fa-phone"></i> 
+                    <abbr title="Phone">P</abbr>: (123) 456-7890</p>
+                <p><i class="fa fa-envelope-o"></i> 
+                    <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">name@example.com</a>
+                </p>
+                <p><i class="fa fa-clock-o"></i> 
+                    <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>
+                <ul class="list-unstyled list-inline list-social-icons">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Contact Form -->
+        <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Send us a Message</h3>
+                <form name="contactForm" ng-submit="submitContactForm()" novalidate>
+                    <div class="form-group" ng-class="{ 'has-error' : contactForm.name.$invalid && !contactForm.name.$pristine }">
+                        <label>Full Name:</label>
+                        <input type="text" name="name" class="form-control" ng-model="user.name" required>
+                        <p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine" class="help-block">You name is required.</p>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : contactForm.phone.$invalid && !contactForm.phone.$pristine }">
+                        <label>Phone Number:</label>
+                        <input type="number" name="phone" class="form-control" ng-model="user.phone" ng-minlength="10" ng-maxlegth="10" ng-pattern="/^\d{10}$/" required>
+                        <p class="help-block" ng-show="contactForm.phone.$dirty && contactForm.phone.$invalid">The phone number should be of 10 digits</p>
+                        <!--<p ng-show="((contactForm.phone.$error.required || contactForm.phone.$error.number) && contactForm.phone.$dirty)" class="help-block">You contact number is required.</p>
+                        <p ng-show="((contactForm.phone.$error.minlength || contactForm.phone.$error.maxlength) && contactForm.phone.$dirty)" class="help-block">Contact number should be in 10 digits.</p>-->
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine }">
+                        <label>Email Address:</label>
+                        <input type="email" name="email" class="form-control" ng-model="user.email" required>
+                        <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Message:</label>
+                            <textarea rows="10" cols="100" class="form-control" name="message" ng-model="user.message" ng-maxlength="999" style="resize:none"></textarea>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <!-- For success/fail messages -->
+                    <button type="submit" class="btn btn-primary" ng-disabled="contactForm.$invalid">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Contact Form JavaScript -->
+    <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+</body>
+
+</html>

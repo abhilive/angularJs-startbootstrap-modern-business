@@ -1,0 +1,85 @@
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" >
+                    <li ng-class="{ active: isActive('/about')}">
+                        <a href="#/about">About</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/services')}">
+                        <a href="#/services">Services</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/contact')}">
+                        <a href="#/contact">Contact</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/portfolio')}" uib-dropdown on-toggle="toggled(open)">
+                        <a href id="portfolio-dropdown" uib-dropdown-toggle>Portfolio <b class="caret"></b></a>
+                        <ul uib-dropdown-menu aria-labelledby="portfolio-dropdown" role="menu">
+                            <li role="menuitem" ng-class="{ active: isActive('/portfolio/portfolio-1-col')}">
+                                <a href="#/portfolio/portfolio-1-col">1 Column Portfolio</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/portfolio/portfolio-2-col')}">
+                                <a href="#/portfolio/portfolio-2-col">2 Column Portfolio</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/portfolio/portfolio-3-col')}">
+                                <a href="#/portfolio/portfolio-3-col">3 Column Portfolio</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/portfolio/portfolio-4-col')}">
+                                <a href="#/portfolio/portfolio-4-col">4 Column Portfolio</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/portfolio/portfolio-item')}">
+                                <a href="#/portfolio/portfolio-item">Single Portfolio Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-class="{ active: isActive('/blog')}" uib-dropdown on-toggle="toggled(open)">
+                        <a href id="blog-dropdown" uib-dropdown-toggle>Blog <b class="caret"></b></a>
+                        <ul uib-dropdown-menu aria-labelledby="blog-dropdown" role="menu">
+                            <li role="menuitem" ng-class="{ active: isActive('/blog/blog-home-1')}">
+                                <a href="#/blog/blog-home-1">Blog Home 1</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/blog/blog-home-2')}">
+                                <a href="#/blog/blog-home-2">Blog Home 2</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/blog/post')}">
+                                <a href="#/blog/post">View One Post</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-class="{ active: isActive('/others')}"  uib-dropdown on-toggle="toggled(open)">
+                        <a href id="other-dropdown" uib-dropdown-toggle>Other Pages <b class="caret"></b></a>
+                        <ul uib-dropdown-menu aria-labelledby="other-dropdown" role="menu">
+                            <li role="menuitem" ng-class="{ active: isActive('/others/full-width')}">
+                                <a href="#/others/full-width">Full Width Page</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/others/sidebar')}">
+                                <a href="#/others/sidebar">Sidebar Page</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/others/faq')}">
+                                <a href="#/others/faq">FAQ</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/others/404')}">
+                                <a href="#/others/404">404</a>
+                            </li>
+                            <li role="menuitem" ng-class="{ active: isActive('/others/pricing')}">
+                                <a href="#/others/pricing">Pricing Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
