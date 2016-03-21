@@ -30,6 +30,9 @@ app.run(function($templateCache) {
       " </ol>\n" +
       "</div>\n" +
     "");
+  $templateCache.put("uib/template/carousel/slide.html",
+      "<div ng-class=\"{'active': active}\" class=\"item text-center\" ng-transclude></div>\n" +
+    "");
 });
 
 app.run(['$location', '$rootScope', function($location, $rootScope) {
