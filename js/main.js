@@ -36,6 +36,7 @@ app.run(function($templateCache) {
 });
 
 app.run(['$location', '$rootScope', function($location, $rootScope) {
+	
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         // test for current route
         if(current.$$route) {
@@ -96,6 +97,17 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider, $loc
  */
 app.controller('BlogCtrl', function (/* $scope, $location, $http */) {
   console.log("Blog Controller reporting for duty.");
+});
+
+app.controller('NavigationCtrl', function ( $rootScope, $location, $http ) {
+	console.log("Nav Controller reporting for duty.");
+	var vm = this;
+    vm.isCollapsed = true;
+    vm.toggleCollapse = toggleCollapse;
+
+    function toggleCollapse() {
+        vm.isCollapsed = !vm.isCollapsed;
+    }
 });
 
 /**
